@@ -4,23 +4,23 @@
   
   
   <entry>
-    <title>第一篇文章</title>
+    <title>线性代数1 - 群，环，域，向量空间</title>
     <link href="/First-Post/"/>
     <url>/First-Post/</url>
     
-    <content type="html"><![CDATA[<p>大家好，我是Zee。</p><p>这是我第一次建立个人博客。</p><a id="more"></a><p>阿巴阿巴阿巴阿阿巴阿巴阿巴<br>阿巴阿巴阿巴阿巴<br>巴阿巴阿巴阿巴阿巴<br>阿巴阿巴阿巴<br>阿巴阿巴阿巴<br>阿巴阿巴阿巴</p>]]></content>
+    <content type="html"><![CDATA[<p>本篇分别介绍了群Groups，环Rings，域Fields以及向量空间Vector spaces四种基本的代数结构。<br><a id="more"></a></p><h3 id="1-群，子群，陪集"><a href="#1-群，子群，陪集" class="headerlink" title="1. 群，子群，陪集"></a>1. 群，子群，陪集</h3><div class="note note-primary">            <p>Definition 1.1 群 Groups</p>          </div><p>一个非空集合G及一个二元运算 $\cdot $ 可能具有以下五种性质：<br>$\forall a,b,c\in G$, 满足：</p><ol><li>封闭性: $a\cdot b\in G$</li><li>结合性: $a\cdot (b\cdot c) = (a\cdot b)\cdot c$</li><li>单位元: $\exists e\in G，a\cdot e = e\cdot a = a$</li><li>逆元素: $\exists b\in G，a\cdot b = b\cdot a = e$ (b称为a的逆元素，记为$a^{-1}$)</li><li>交换性: $a\cdot b = b\cdot a$</li></ol><p>当满足性质1, 2, 3, 4时，称(G,$\cdot $)为一个群 <em>group</em>；<br>当满足性质1,2时，称(G,$\cdot $)为一个幺半群 <em>monoid</em>；<br>当满足性质1, 2, 3, 4, 5时，称(G,$\cdot $)为一个阿贝尔群  <em>abelian group</em>；<br><div class="note note-success">            <p>Example 1.1 </p>          </div></p><ol><li>整数集Z = {…,-n,…,-1,0,1,…,n…} 是单位元为0的加法阿贝尔群，集合Z* = Z - {0} 由于不满足逆元素不是乘法群；</li><li>有理数集Q 是单位元为0的加法阿贝尔群，集合Q* = Q - {0} 是单位元为1的乘法阿贝尔群；   </li></ol><div class="note note-light">            <p>专业词汇</p>          </div><blockquote><p>封闭性 closure<br>结合性 associativity<br>单位元 identity element<br>逆元素 inverse element<br>交换性 commutativity<br>阿贝尔群 abelian group<br>幺半群 monoid<br>有理数 rational numbers</p></blockquote>]]></content>
     
     
     <categories>
       
-      <category>Diary</category>
+      <category>Mathematics</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>闲话</tag>
+      <tag>Linear Algebra</tag>
       
     </tags>
     
