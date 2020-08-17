@@ -155,7 +155,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      2.3k 字
+      2.7k 字
     </span>
   
 
@@ -192,7 +192,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：August 16, 2020
+                  本文最后更新于：August 17, 2020
                 
               </p>
             
@@ -248,11 +248,12 @@ a_{m1}+b_{m1} & \cdots & a_{mn}+b{mn} \\
 <p><strong>矩阵转置运算</strong>  </p>
 <p>对于$A\in R^{m\times n}$，当$B\in R^{n\times m}$中所有元素满足$b_{ij}=a_{ji}$时，B称为A的转置（transpose）写作$A^T$。特别地，当$A=A^T$时，A称为对称方阵（symmetric matrix）。
 　</p>
-<p><strong>矩阵逆运算</strong><br>对于$A\in R^{m\times n}$，满足$AB=BA=I_n$的方阵B称为A的逆（inverse）写作$A^{-1}$。  </p>
-<p><font color=red>一个矩阵仅可能不存在逆或存在唯一逆。</font></p>
+<p><strong>矩阵逆运算</strong>  </p>
+<p>对于方阵$A\in R^{m\times n}$，满足$AB=BA=I_n$的方阵B称为A的逆（inverse）写作$A^{-1}$。  </p>
+<p><font color=red>只有方阵才有逆，一个方阵仅可能不存在逆或存在唯一逆。</font></p>
 <ul>
-<li>存在唯一逆的矩阵称为可逆的，正则的，非奇异的（invertible/regular/nonsingular）</li>
-<li>不存在逆的矩阵称为不可逆的，奇异的（noninvertible/singular）</li>
+<li>存在唯一逆的方阵称为可逆的，正则的，非奇异的（invertible/regular/nonsingular）</li>
+<li>不存在逆的方阵称为不可逆的，奇异的（noninvertible/singular）</li>
 <li>可逆矩阵的转置也是可逆的</li>
 </ul>
 <p><strong>矩阵运算的性质</strong></p>
@@ -277,24 +278,25 @@ a_{m1}x_1 & + ··· + & a_{mn}x_n & = & b_m \\
 <ul>
 <li>重合（无穷解）</li>
 <li>相交（唯一解）</li>
-<li>平行（无解）  
-　<div class="note note-success">
+<li>平行（无解）  </li>
+</ul>
+<div class="note note-success">
             <p><strong>Example &nbsp; 线性方程组的几何意义</strong></p><center>$4x_1+4x_2=5$ <br/>$2x_1-4x_2=1$ <br/></center><p>在本例中两线性方程的交点为(1,0.25)，因此该方程组有唯一解(1,0.25)。</p><center><img src="/img/mml/figure2.png" srcset="/img/loading.gif" alt=""></center>
           </div>  
-</li>
-</ul>
 <p>为了规范线性方程组的求解过程，通常将线性方程组压缩表达成：</p>
 <ul>
 <li><p>向量式： $\sum_{n}^{i=1}x_ic_i=b$  </p>
 </li>
 <li><p>矩阵式：$Ax=b $ </p>
 </li>
-<li>增广矩阵（agumented matrix）：$[A|b]$ <em>省略变量x，合并矩阵A和b</em><div class="note note-success">
+<li>增广矩阵（agumented matrix）：$[A|b]$ <em>省略变量x，合并矩阵A和b</em>  </li>
+</ul>
+<div class="note note-success">
             <p><strong>Example &nbsp;线性方程的三种表示方法</strong></p><script type="math/tex; mode=display">\begin{matrix}x_1 & + & 8x_3 & - & 4x_4 = & 42 & \;(1)\\x_2 & + & 2x_3 & + & 12x_4 = & 8 & \;(2)\\\end{matrix}</script><p>向量式：</p><script type="math/tex; mode=display">\begin{bmatrix}1\\0\\\end{bmatrix} x_1 +\begin{bmatrix}0\\1\\\end{bmatrix} x_2 +\begin{bmatrix}8\\2\\\end{bmatrix} x_3 +\begin{bmatrix}-4\\12\\\end{bmatrix} x_4 =\begin{bmatrix}42\\8\\\end{bmatrix}</script><p>矩阵式：</p><script type="math/tex; mode=display">\begin{bmatrix} 1&0&8&-4\\0&1&2&12\\\end{bmatrix}\begin{bmatrix}x_1\\x_2\\x_3\\x_4\\\end{bmatrix}=\begin{bmatrix}42\\8\\\end{bmatrix}</script><p>增广矩阵：</p><script type="math/tex; mode=display">\left[    \begin{array}{cccc|c}      1&0&8&-4&42\\      0&1&2&12&8    \end{array}\right]</script>
           </div>  
-</li>
-</ul>
-<h3 id="1-3-求解线性方程组"><a href="#1-3-求解线性方程组" class="headerlink" title="1.3 求解线性方程组"></a>1.3 求解线性方程组</h3><p>高斯消元法（Gaussian elimination）是求解线性方程组的一般方法。  </p>
+<h3 id="1-3-求解线性方程组"><a href="#1-3-求解线性方程组" class="headerlink" title="1.3 求解线性方程组"></a>1.3 求解线性方程组</h3><p>从矩阵的角度看待线性方程组，我们只需要解Ax=b：</p>
+<script type="math/tex; mode=display">
+Ax=b \to A^TAx=A^Tb \to x=(A^TA)^{-1}A^Tb</script><p>显然这种方法涉及的计算量是非常大的。<br>求解线性方程组的一般方法是高斯消元法（Gaussian elimination）。  </p>
 <p><strong>Step1</strong><br>利用初等变换（elementary transformation）将增广矩阵简化成梯形矩阵（row-echelon form）。<br>初等变换涉及到的操作有：两行互换，行与行之间的加减乘除运算；  </p>
 <p>简化后得到的梯形矩阵需要满足：</p>
 <ul>
@@ -304,13 +306,26 @@ a_{m1}x_1 & + ··· + & a_{mn}x_n & = & b_m \\
 <p>梯形矩阵中轴所对应的变量称为基本变量（basic variable），其余变量称为自由变量（free variable）。  </p>
 <p><strong>Step2</strong><br>为了求得方程组的一个特解（particular solution），我们需要取轴所在的列（也称为枢列），使得这些列与基本变量的乘积和等于b，求出基本变量的特解，并取自由变量的特解为0，最终得到一个特解。  </p>
 <p><strong>Step3</strong><br>最后，为了求方程组的通解（general solution），我们需要将将梯形矩阵转化为阶梯型矩阵进而求Ax=0的通解。  </p>
-<p>当一个梯形矩阵满足以下两个条件时，称为阶梯型矩阵（reduced row-echelon form）</p>
+<p>当一个梯形矩阵满足以下两个条件时，称为阶梯型矩阵（REF: reduced row-echelon form）</p>
 <ul>
 <li>所有的轴均为1</li>
-<li>所有枢列中，除了轴外其他数字均为0<br>转化成功后，将所有非枢列表示成其左侧的枢列的倍数，最后在特解的基础上添加包含自由变量的条件表达式；<div class="note note-success">
-            <p><strong>Example 利用高斯消元法求解线性方程组</strong></p><script type="math/tex; mode=display">\begin{equation}\begin{split}&\left[    \begin{array}{ccccc|c}      -2&4&-2&-1&4&-3\\      4&-8&3&-3&1&2\\      1&-2&1&-1&1&0\\      1&-2&0&-3&4&a    \end{array}\right]&\begin{array}{ccccc|c}swap with R_3\\\\swap with R_1\\\\\end{array} &\to \\\\&\left[    \begin{array}{ccccc|c}      1&-2&1&-1&1&0\\      4&-8&3&-3&1&2\\      -2&4&-2&-1&4&-3\\      1&-2&0&-3&4&a    \end{array}\right]&\begin{array}{ccccc|c}\\-4R_1\\+2R_1\\-R_1\\\end{array} &\to\\\\&\left[    \begin{array}{ccccc|c}      1&-2&1&-1&1&0\\      0&0&-1&1&-3&2\\      0&0&0&-3&6&-3\\      0&0&-1&-2&3&a    \end{array}\right]&\begin{array}{ccccc|c}\\\\\\-R_2-R_3\\\end{array} &\to\\\\&\left[    \begin{array}{ccccc|c}      1&-2&1&-1&1&0\\      0&0&-1&1&-3&2\\      0&0&0&-3&6&-3\\      0&0&0&0&0&a+1    \end{array}\right]&\begin{array}{ccccc|c}\\\\·(-1)\\·(-\frac {1}{3})\\\end{array} &\to\\\\&\left[    \begin{array}{ccccc|c}      1&-2&1&-1&1&0\\      0&0&1&-1&3&-2\\      0&0&0&1&-2&1\\      0&0&0&0&0&a+1    \end{array}\right]\end{split}\end{equation}</script><p>到此为止，增广矩阵已经变换成为梯形矩阵，且基本变量为$x_1,x_3,x_4$，自由变量为$x_2,x_5$。不难发现，只有当a=-1时，此方程组才有解。  </p><p>下面求解该方程组的一个特解：</p><script type="math/tex; mode=display">x_1\begin{bmatrix}1\\0\\0\\0\end{bmatrix}+x_3\begin{bmatrix}1\\1\\0\\0\end{bmatrix}+x_4\begin{bmatrix}-1\\-1\\1\\0\end{bmatrix}=\begin{bmatrix}0\\-2\\1\\0\end{bmatrix}</script><p>很容易找到一组特解$x=[2,0,-1,1,0]^T$。  </p><p>为了求得通解，需要将其进一步变换为阶梯型矩阵：</p><script type="math/tex; mode=display">\begin{equation}\begin{split}&\left[    \begin{array}{ccccc|c}      1&-2&1&-1&1&0\\      0&0&1&-1&3&-2\\      0&0&0&1&-2&1\\      0&0&0&0&0&0    \end{array}\right]&\begin{array}{ccccc|c}-R_2\\\\\\\\\end{array} &\quad\to \\\\&\left[    \begin{array}{ccccc|c}      1&-2&0&0&-2&2\\      0&0&1&-1&3&-2\\      0&0&0&1&-2&1\\      0&0&0&0&0&0    \end{array}\right]&\begin{array}{ccccc|c}\\+R_3\\\\\\\end{array} &\quad\to \\\\&\left[    \begin{array}{ccccc|c}      1&-2&0&0&-2&2\\      0&0&1&0&1&-1\\      0&0&0&1&-2&1\\      0&0&0&0&0&0    \end{array}\right]\end{split}\end{equation}</script><p>进而，对于非枢列C2,C5而言：  </p><script type="math/tex; mode=display">\begin{equation}\begin{split}&C_2=-2C_1 \quad &\Rightarrow \quad 0 = 2C_1+C_2+0C_3+0C_4+0C_5 \\\\&C_5=-2C_1+C_3-2C_4 \quad &\Rightarrow \quad 0 = 2C_1+0C_2-C_3+2C_4+C_5\end{split}\end{equation}</script><p>因此，该线性方程组的通解为：</p><script type="math/tex; mode=display">x \in R^5:\quad x= \begin{bmatrix}2\\0\\-1\\1\\0 \end{bmatrix} +\lambda_1 \begin{bmatrix}2\\1\\0\\0\\0 \end{bmatrix}+\lambda_2\begin{bmatrix}2\\0\\-1\\2\\1 \end{bmatrix}, \quad \lambda_1,\lambda_2 \in R</script>
+<li>所有枢列中，除了轴外其他数字均为0<br>转化成功后，将所有非枢列表示成其左侧的枢列的倍数，最后在特解的基础上添加包含自由变量的条件表达式；  </li>
+</ul>
+<div class="note note-primary">
+            <p><strong>计算通解的简便方法 The Minus 1 Trick</strong>  </p><p>对于REF，通过添加n行来使其成为一个对角线上的元素均为1或-1的方阵，每个添加的行中仅有一个元素为-1，其余均为0；<br>在特殊方阵中，-1所在的列即是Ax=0的通解；</p>
           </div>
-<br/><p align="right"><strong>To be continued...</strong></p>
+<div class="note note-success">
+            <p><strong>Example 利用高斯消元法求解线性方程组</strong></p><script type="math/tex; mode=display">\begin{equation}\begin{split}&\left[    \begin{array}{ccccc|c}      -2&4&-2&-1&4&-3\\      4&-8&3&-3&1&2\\      1&-2&1&-1&1&0\\      1&-2&0&-3&4&a    \end{array}\right]&\begin{array}{ccccc|c}swap with R_3\\\\swap with R_1\\\\\end{array} &\to \\\\&\left[    \begin{array}{ccccc|c}      1&-2&1&-1&1&0\\      4&-8&3&-3&1&2\\      -2&4&-2&-1&4&-3\\      1&-2&0&-3&4&a    \end{array}\right]&\begin{array}{ccccc|c}\\-4R_1\\+2R_1\\-R_1\\\end{array} &\to\\\\&\left[    \begin{array}{ccccc|c}      1&-2&1&-1&1&0\\      0&0&-1&1&-3&2\\      0&0&0&-3&6&-3\\      0&0&-1&-2&3&a    \end{array}\right]&\begin{array}{ccccc|c}\\\\\\-R_2-R_3\\\end{array} &\to\\\\&\left[    \begin{array}{ccccc|c}      1&-2&1&-1&1&0\\      0&0&-1&1&-3&2\\      0&0&0&-3&6&-3\\      0&0&0&0&0&a+1    \end{array}\right]&\begin{array}{ccccc|c}\\\\·(-1)\\·(-\frac {1}{3})\\\end{array} &\to\\\\&\left[    \begin{array}{ccccc|c}      1&-2&1&-1&1&0\\      0&0&1&-1&3&-2\\      0&0&0&1&-2&1\\      0&0&0&0&0&a+1    \end{array}\right]\end{split}\end{equation}</script><p>到此为止，增广矩阵已经变换成为梯形矩阵，且基本变量为$x_1,x_3,x_4$，自由变量为$x_2,x_5$。不难发现，只有当a=-1时，此方程组才有解。  </p><p>下面求解该方程组的一个特解：</p><script type="math/tex; mode=display">x_1\begin{bmatrix}1\\0\\0\\0\end{bmatrix}+x_3\begin{bmatrix}1\\1\\0\\0\end{bmatrix}+x_4\begin{bmatrix}-1\\-1\\1\\0\end{bmatrix}=\begin{bmatrix}0\\-2\\1\\0\end{bmatrix}</script><p>很容易找到一组特解$x=[2,0,-1,1,0]^T$。  </p><p>为了求得通解，需要将其进一步变换为阶梯型矩阵：</p><script type="math/tex; mode=display">\begin{equation}\begin{split}&\left[    \begin{array}{ccccc}      1&-2&1&-1&1\\      0&0&1&-1&3\\      0&0&0&1&-2\\      0&0&0&0&0    \end{array}\right]&\begin{array}{ccccc}-R_2\\\\\\\\\end{array} &\quad\to \\\\&\left[    \begin{array}{ccccc}      1&-2&0&0&-2\\      0&0&1&-1&3\\      0&0&0&1&-2\\      0&0&0&0&0    \end{array}\right]&\begin{array}{ccccc}\\+R_3\\\\\\\end{array} &\quad\to \\\\&\left[    \begin{array}{ccccc}      1&-2&0&0&-2\\      0&0&1&0&1\\      0&0&0&1&-2\\      0&0&0&0&0    \end{array}\right]\end{split}\end{equation}</script><p>进而，对于非枢列C2,C5而言：  </p><script type="math/tex; mode=display">\begin{equation}\begin{split}&C_2=-2C_1 \quad &\Rightarrow \quad 0 = 2C_1+C_2+0C_3+0C_4+0C_5 \\\\&C_5=-2C_1+C_3-2C_4 \quad &\Rightarrow \quad 0 = 2C_1+0C_2-C_3+2C_4+C_5\end{split}\end{equation}</script><p>或者通过简便算法将REF补充为5x5的特殊方阵：</p><script type="math/tex; mode=display">\left[    \begin{array}{ccccc}      1&-2&0&0&-2\\      0&-1&0&0&0\\      0&0&1&0&1\\      0&0&0&1&-2\\      0&0&0&0&-1    \end{array}\right]</script><p>因此，该线性方程组的通解为：</p><script type="math/tex; mode=display">x \in R^5:\quad x= \begin{bmatrix}2\\0\\-1\\1\\0 \end{bmatrix} +\lambda_1 \begin{bmatrix}-2\\-1\\0\\0\\0 \end{bmatrix}+\lambda_2\begin{bmatrix}-2\\0\\1\\-2\\-1 \end{bmatrix}, \quad \lambda_1,\lambda_2 \in R</script>
+          </div>
+<p>此外，高斯消元法还可以求解逆矩阵中：  </p>
+<p>为了求$AX=I=XA^{-1}$, 我们可以将其写成增广矩阵的形式即$[A|I]$，通过消元将其变为$[I|A^{-1}]$，进而得到逆矩阵。  </p>
+<div class="note note-success">
+            <p><strong>利用高斯消元法求解逆矩阵</strong>  </p><script type="math/tex; mode=display">A=\begin{bmatrix}1&0&2&0\\1&1&0&0\\1&2&0&1\\1&1&1&1\end{bmatrix}</script><script type="math/tex; mode=display">\left[    \begin{array}{cccc|cccc}      1&0&2&0&1&0&0&0\\      1&1&0&0&0&1&0&0\\      1&2&0&1&0&0&1&0\\      1&1&1&1&0&0&0&1    \end{array}\right] \quad \to \quad\left[    \begin{array}{cccc|cccc}      1&0&0&0&-1&2&-2&2\\      0&1&0&0&1&-1&2&-2\\      0&0&1&0&1&-1&1&-1\\      0&0&0&1&-1&0&-1&2    \end{array}\right]</script>
+          </div>  
+<p>然而，在实践中，高斯消元法并非是求解线性方程组的最优解（当变量数非常庞大时，计算量会随着方程数量的增加按立方倍递增）；<br>有两类方法可以间接的解决这个问题：</p>
+<ul>
+<li>平稳迭代法（stationary iterative methods）</li>
+<li>子空间法（Krylov subspace methods）<br><br/><p align="right"><strong>To be continued...</strong></p>
 </li>
 </ul>
 
